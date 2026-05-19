@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  /* Store complex values here so the formatter can safely add spaces */
+  --theme-gradient: radial-gradient(100% 100% at 50% 0%, rgba(13, 24, 52, 1) 0%, rgba(13, 17, 28, 1) 100%);
+  --theme-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --theme-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --theme-shadow-modal: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --theme-font: 'Inter', sans-serif;
+}
+
+@layer components {
+
+  /* Layout & Container */
+  .app-body {
+    font-family: var(--theme-font);
+    background-image: var(--theme-gradient);
+    @apply text-white flex justify-center items-center min-h-screen antialiased;
+  }
+
+  .swap-card {
+    @apply bg-[#131A2A] border border-[#293249] rounded-3xl p-3 shadow-[var(--theme-shadow-lg)];
+  }
+
+  /* Form Elements */
+  .input-group {
+    @apply bg-[#1B2236] border border-[#1B2236] rounded-2xl p-4 transition-colors duration-200 focus-within:border-[#4C82FB];
+  }
+
+  .input-label {
+    @apply text-sm text-[#98A1C0] mb-2 block;
+  }
+
+  .text-primary {
+    @apply text-[#98A1C0];
+  }
+
+  .text-error {
+    @apply text-[#FF4343];
+  }
+
+  .input-amount {
+    @apply bg-transparent border-none text-white text-4xl font-medium w-full outline-none placeholder:text-[#5D6785];
+  }
+
+  .token-selector {
+    @apply flex items-center gap-2 bg-[#293249] border-none rounded-2xl py-1 pr-3 pl-2 text-white text-xl font-semibold cursor-pointer h-9 transition-colors duration-200 hover:bg-[#313D5A] shadow-[var(--theme-shadow-sm)] whitespace-nowrap;
+  }
+
+  .swap-arrow-btn {
+    @apply bg-[#1B2236] border-4 border-[#131A2A] rounded-xl p-1.5 text-[#98A1C0] cursor-pointer flex justify-center items-center transition-colors duration-200 hover:text-white hover:bg-[#293249];
+  }
+
+  /* Modal */
+  .modal-overlay {
+    @apply fixed top-0 left-0 w-full h-full bg-black/60 backdrop-blur-sm flex justify-center items-center z-[100];
+  }
+
+  .modal-content {
+    @apply bg-[#131A2A] border border-[#293249] rounded-3xl w-full max-w-[420px] h-[80vh] max-h-[600px] flex flex-col shadow-[var(--theme-shadow-modal)];
+  }
+
+  .modal-close-btn {
+    @apply bg-transparent border-none text-[#98A1C0] text-2xl cursor-pointer transition-colors duration-200 hover:text-white;
+  }
+
+  .search-input {
+    @apply w-full bg-[#1B2236] border border-[#293249] rounded-xl py-3 px-4 text-white text-base outline-none transition-colors duration-200 focus:border-[#4C82FB];
+  }
+
+  .token-item {
+    @apply flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-colors duration-200 hover:bg-[#1B2236];
+  }
+
+  .token-icon-img {
+    @apply w-9 h-9 rounded-full;
+  }
+
+  .loader {
+    @apply animate-[spin_1s_ease-in-out_infinite] w-6 h-6 border-3 border-white/30 border-t-white rounded-full absolute;
+  }
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Scrollbar for token list */
+.token-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.token-list::-webkit-scrollbar-thumb {
+  background: #293249;
+  border-radius: 3px;
+}
