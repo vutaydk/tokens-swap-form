@@ -1,100 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fancy Form</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fancy Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <link href="/style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body class="app-body">
-  <div class="w-full max-w-[480px] p-4">
-    <div class="swap-card">
-      <div class="flex justify-between items-center px-4 py-3 mb-2">
-        <h2 class="text-base font-medium text-white">Swap</h2>
-      </div>
-
-      <form id="swap-form" class="flex flex-col" novalidate>
-        <!-- From Field -->
-        <div class="input-group">
-          <label for="input-amount" class="input-label">From</label>
-          <div class="flex justify-between items-center gap-3">
-            <input type="number" id="input-amount" class="input-amount" placeholder="0" step="any" min="0" required
-              autocomplete="off" />
-            <button type="button" class="token-selector" id="from-token-selector">
-              <img src="" alt="" class="w-6 h-6 rounded-full" id="from-token-icon" style="display:none;" />
-              <span id="from-token-symbol">Select</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-          </div>
-          <div class="text-xs text-primary mt-2" id="from-amount-usd">$0.00</div>
-        </div>
-
-        <!-- Swap Arrow -->
-        <div class="flex justify-center -my-3.5 z-10">
-          <button type="button" class="swap-arrow-btn" id="swap-arrow-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <!-- To Field -->
-        <div class="input-group">
-          <label for="output-amount" class="input-label">To</label>
-          <div class="flex justify-between items-center gap-3">
-            <input type="number" id="output-amount" class="input-amount" placeholder="0" step="any" min="0" required
-              autocomplete="off" />
-            <button type="button" class="token-selector" id="to-token-selector">
-              <img src="" alt="" class="w-6 h-6 rounded-full" id="to-token-icon" style="display:none;" />
-              <span id="to-token-symbol">Select</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-          </div>
-          <div class="text-xs text-[#98A1C0] mt-2" id="to-amount-usd">$0.00</div>
-        </div>
-
-        <!-- Exchange Rate Info -->
-        <div class="text-sm text-primary pt-3 px-4 flex justify-between items-center min-h-[32px]"
-          id="exchange-rate-info"></div>
-
-        <!-- Error message -->
-        <div class="text-error text-sm pt-2 px-4 text-center min-h-[28px]" id="form-error"></div>
-
-        <div class="py-4 flex justify-center items-center w-full h-full">
-          <span class="loader" style="display:none;"></span>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Token Selection Modal -->
-  <div class="modal-overlay" id="token-modal" style="display:none;">
-    <div class="modal-content">
-      <div class="flex justify-between items-center p-5 border-b border-[#293249]">
-        <h3 class="text-base font-medium">Select a token</h3>
-        <button class="modal-close-btn" id="close-modal">&times;</button>
-      </div>
-      <div class="p-4 px-5">
-        <input type="text" id="token-search" class="search-input" placeholder="Search name or paste address"
-          autocomplete="off" />
-      </div>
-      <div class="flex-1 overflow-y-auto px-2 pb-2 token-list" id="token-list">
-        <!-- Token items injected by JS -->
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="/script.js"></script>
-</body>
-
+  <body class="app-body">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
